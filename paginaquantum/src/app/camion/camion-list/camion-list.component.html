@@ -1,0 +1,23 @@
+
+<form [formGroup]="camionForm" (ngSubmit)="createCamion(camionForm.value)">
+
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="idSalvo">
+      Numero de salvoconducto
+    </label>
+		<input novalidate
+    id="idSalvo"
+    class="form-control"
+      formControlName="idSalvo"
+      placeholder="Numero de salvoconducto">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="camionForm.get('idSalvo').hasError('required') && camionForm.get('name').touched">
+			Nunmero de salvoconducto
+		</div>
+	</div>
+
+
+	<button class="button mx-sm-3 mb-2" type="submit" [disabled]="camionForm.invalid" >Validar</button>
+
+</form>
