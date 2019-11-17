@@ -1,5 +1,8 @@
 export class Camion {
     id: number;
-    marca: String;
-    placa: String;
+    origen: String;
+    destino: String;
+    claseRecurso: String;
+    descripcion: String;
+    formaOtorgamiento: String;
 }

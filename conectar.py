@@ -8,6 +8,11 @@ import mysql.connector
 app = Flask(__name__)
 api = Api(app)
 
+
+if __name__ == '__main__':
+      app.run(host='192.168.132.86', port=5000,debug=True)
+
+
 camiones = [{
   "id": 1,
   "marca": "Chevrolet",
@@ -40,6 +45,20 @@ class Camiones(Resource):
                 return u, 200
         return "El salvoconducto no se encontro", 404
 
+class CamionesPlaca(Resource):
+    def get(self, placa):
+        mydb = mysql.connector.connect(
+          host="remotemysql.com",
+          port="3306",
+          user="qgbd0jGv86",
+          passwd="ZTOqEZrvAU",
+          database="qgbd0jGv86"
+        )
+        mycursor = mydb.cursor()
+        mycursor.execute("SELECT * FROM camiones WHERE placa = '"+placa+"'")
+        myresult = mycursor.fetchall()
+        return myresult, 200
+
 class Arboles(Resource):
     def get(self, id):
         mydb = mysql.connector.connect(
@@ -54,6 +73,19 @@ class Arboles(Resource):
         myresult = mycursor.fetchall()
         return myresult, 200
 
+
+
+class Postes(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument("x")
+        parser.add_argument("y")
+        parser.add_argument("dis")
+        args = parser.parse_args()
+        print(args)
+        return None, 201
+
+
 @app.after_request
 def add_security_headers(resp):
     resp.headers['Access-Control-Allow-Origin']='*'
@@ -61,4 +93,5 @@ def add_security_headers(resp):
 
 api.add_resource(Camiones,"/camion/<int:id>")
 api.add_resource(Arboles,"/arbol/<int:id>")
-app.run(debug=True)
+api.add_resource(CamionesPlaca,"/camionPlaca/<string:placa>")
+api.add_resource(Postes,"/postes")

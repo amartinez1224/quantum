@@ -10,19 +10,19 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-
-sql = "INSERT INTO maderas (nombre, nombreCientifico,descripcion,urlImagen) VALUES (%s, %s, %s, NULL)"
-val = ("Nealchornea yapurensis", "Nealchornea Yapurensis","Lorem Impus Dolorem")
+mycursor.execute("ALTER TABLE salvoconducto ADD COLUMN volumen INT ")
+'''
+sql = "INSERT INTO  camiones(marca, descripcion,placa,urlImagen) VALUES (%s, %s, %s, NULL)"
+val = ("Chevrolet", "Lorem Impus Dolorem","EHY234")
 mycursor.execute(sql, val)
 
 mydb.commit()
 
 '''
-mycursor.execute("SHOW COLUMNS FROM maderas")
-mycursor.execute("SELECT * FROM maderas")
+mycursor.execute("SHOW COLUMNS FROM salvoconducto")
+#mycursor.execute("SELECT * FROM maderas")
 
 myresult = mycursor.fetchall()
 
 for x in myresult:
   print(x)
-'''
