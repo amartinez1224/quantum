@@ -23,4 +23,8 @@ export class CamionService {
         getCamion(CamionId): Observable<Camion> {
         return this.http.get<Camion>(API_URL + Camioness +CamionId);
     }
+
+    getSosp(): Observable<CamionDetail[]> {
+    return this.http.get<Camion[]>(API_URL + "/sosp");
+}
 }

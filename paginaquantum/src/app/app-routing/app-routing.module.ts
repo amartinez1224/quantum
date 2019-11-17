@@ -4,6 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {CamionListComponent} from '../camion/camion-list/camion-list.component';
 import {CamionDetailComponent} from '../camion/camion-detail/camion-detail.component';
+import { HelloComponent } from '../hello.component';
+import {CamionMaloComponent} from '../camion/camion-malo/camion-malo.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,14 @@ const routes: Routes = [
          component: CamionDetailComponent
        }
      ]
+  },
+  {
+      path: 'home',
+      component: HelloComponent
+  },
+  {
+      path: 'sospechoso',
+      component: CamionMaloComponent
   }
  ];
 

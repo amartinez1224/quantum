@@ -5,9 +5,10 @@ import { CamionService } from './camion.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CamionDetailComponent } from './camion-detail/camion-detail.component';
 import { RouterModule, Routes } from '@angular/router';
+import { CamionMaloComponent } from './camion-malo/camion-malo.component';
 
 @NgModule({
-  declarations: [CamionListComponent, CamionDetailComponent],
+  declarations: [CamionListComponent, CamionDetailComponent, CamionMaloComponent],
   imports: [
     CommonModule,
         FormsModule,
