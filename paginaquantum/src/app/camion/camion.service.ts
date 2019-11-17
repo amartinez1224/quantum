@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Camion } from './camion';
 import { CamionDetail } from './camion-detail';
 
-const API_URL = 'http://127.0.0.1:5000';
+const API_URL = 'http://192.168.132.86:5000';
 const Camiones = '/camion/1';
-const Camioness = '/camion/';
+const Camioness = '/salvo/';
 
 
 @Injectable()
