@@ -146,7 +146,6 @@ class Postes(Resource):
         Placa=args["Placa"]
         Decodificado=np.fromstring(args["Cambios"], np.int)
         Massa=np.reshape(Decodificado,(int(len(Decodificado)/3),3))
-        print(Massa)
         densidad=10
         volumen=6
         Lugarllenado=[57,62]
@@ -154,8 +153,8 @@ class Postes(Resource):
         for i in range(int(len(Decodificado)/3)):
             #or (Lugarllenado[0]!=Massa[i,0] and Lugarllenado[1]!=Massa[i,1])
             if (abs(Masa-Massa[i,2])>2):
+                Placa = Placa[0:6]
                 Dicc={'Placa':Placa,'Alerta': True}
-
                 mydb = mysql.connector.connect(
                   host="remotemysql.com",
                   port="3306",
@@ -164,14 +163,45 @@ class Postes(Resource):
                   database="qgbd0jGv86"
                 )
                 mycursor = mydb.cursor()
-                mycursor.execute("SELECT id FROM Camiones WHERE placa = '"+Placa"'")
+                sql="SELECT id,placa FROM camiones WHERE placa = '"+Placa+"'"
+                mycursor.execute(sql)
                 myresult = mycursor.fetchall()
-                print(myresult)
 
-                return myresult,201
+                sql="INSERT INTO sosp(idCamion) VALUES("+str(myresult[0][0])+")"
+                mycursor.execute(sql)
+                #mydb.commit()
+                return None,201
 
         return None, 201
 
+class Sosp(Resource):
+    def get(self):
+        mydb = mysql.connector.connect(
+          host="remotemysql.com",
+          port="3306",
+          user="qgbd0jGv86",
+          passwd="ZTOqEZrvAU",
+          database="qgbd0jGv86"
+        )
+        mycursor = mydb.cursor()
+        sql="SELECT * FROM sosp"
+        mycursor.execute(sql)
+        myresult = mycursor.fetchall()
+        so =[]
+        for o in myresult:
+            sql="SELECT id, marca, descripcion,placa FROM camiones WHERE id = "+str(o[0])
+            mycursor.execute(sql)
+            myres = mycursor.fetchall()[0]
+            Salvo={}
+            Salvo["id"]=myres[0]
+            Salvo["marca"]=myres[1]
+            Salvo["descripcion"]=myres[2]
+            Salvo["placa"]=myres[3]
+            so.append(Salvo)
+            print(myres)
+
+
+        return so,201
 
 @app.after_request
 def add_security_headers(resp):
@@ -182,4 +212,5 @@ api.add_resource(Camiones,"/camion/<int:id>")
 api.add_resource(Arboles,"/arbol/<int:id>")
 api.add_resource(Salvo,"/salvo/<string:numero>")
 api.add_resource(Postes,"/postes")
+api.add_resource(Sosp,"/sosp")
 app.run(host="0.0.0.0",debug=True)
