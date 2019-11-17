@@ -149,13 +149,11 @@ class Postes(Resource):
         densidad=10
         volumen=6
         Lugarllenado=[57,62]
-        Masa=53
-        MasaLlena=45
-        MasaMal=42
+        Masa=57
         for i in range(int(len(Decodificado)/3)):
             #or (Lugarllenado[0]!=Massa[i,0] and Lugarllenado[1]!=Massa[i,1])
-            print(abs(Masa-Massa[i,2])>2 or abs(MasaLlena-Massa[i,2])>2)
-            if ( (not (abs(Masa-Massa[i,2])>2) )and (not( abs(MasaLlena-Massa[i,2])>2))):
+            if (abs(Masa-Massa[i,2])>3):
+                print("entro")
                 Placa = Placa[0:6]
                 Dicc={'Placa':Placa,'Alerta': True}
                 mydb = mysql.connector.connect(
