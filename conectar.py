@@ -1,5 +1,9 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
+import mysql.connector
+
+
+
 
 app = Flask(__name__)
 api = Api(app)
@@ -36,7 +40,19 @@ class Camiones(Resource):
                 return u, 200
         return "El salvoconducto no se encontro", 404
 
-
+class Arboles(Resource):
+    def get(self, id):
+        mydb = mysql.connector.connect(
+          host="remotemysql.com",
+          port="3306",
+          user="qgbd0jGv86",
+          passwd="ZTOqEZrvAU",
+          database="qgbd0jGv86"
+        )
+        mycursor = mydb.cursor()
+        mycursor.execute("SELECT * FROM maderas")
+        myresult = mycursor.fetchall()
+        return myresult, 200
 
 @app.after_request
 def add_security_headers(resp):
@@ -44,4 +60,5 @@ def add_security_headers(resp):
     return resp
 
 api.add_resource(Camiones,"/camion/<int:id>")
+api.add_resource(Arboles,"/arbol/<int:id>")
 app.run(debug=True)

@@ -9,4 +9,20 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
-mycursor.execute("CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))")
+
+
+sql = "INSERT INTO maderas (nombre, nombreCientifico,descripcion,urlImagen) VALUES (%s, %s, %s, NULL)"
+val = ("Nealchornea yapurensis", "Nealchornea Yapurensis","Lorem Impus Dolorem")
+mycursor.execute(sql, val)
+
+mydb.commit()
+
+'''
+mycursor.execute("SHOW COLUMNS FROM maderas")
+mycursor.execute("SELECT * FROM maderas")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+'''
