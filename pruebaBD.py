@@ -10,14 +10,14 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-
+'''
 sql = "INSERT INTO  salvoconducto(origen, destino, claseRecurso, descripcion, formaOtorgamiento, numero, volumen) VALUES (%s, %s, %s, %s,%s,%s,%s)"
 val = ("Putumayo", "Cali","Rollado", "Loren Impus Dolorem","En oficina", "34567","10")
 mycursor.execute(sql, val)
 
 mydb.commit()
 
-'''
+
 mycursor.execute("ALTER TABLE salvoconducto ADD COLUMN volumen INT ")
 
 
@@ -34,8 +34,14 @@ mycursor.execute("ALTER TABLE salvoconducto ADD COLUMN volumen INT ")
 (bytearray(b'salvoconducto'),)
 
 '''
-mycursor.execute("SHOW COLUMNS FROM salvoconducto")
-#mycursor.execute("SELECT * FROM maderas")
+
+#mycursor.execute("SHOW COLUMNS FROM maderas")
+
+mycursor.execute("INSERT INTO SalvoCamion(idSalvo,idCamion) VALUES (1,1)")
+#mycursor.execute("INSERT INTO personas (nombre,apellido,cedula) VALUES ('Nicolas','vergara',12345)")
+mydb.commit()
+
+mycursor.execute("SELECT * FROM SalvoCamion")
 
 myresult = mycursor.fetchall()
 

@@ -8,20 +8,24 @@ export class Camion {
     numero: Number;
     volumen: String;
 
+    idCon: Number;
     nombreCon:String;
     apellidoCon: String;
     cedulaCon: String;
 
+    idArb: Number;
     nombreArb:String;
     nombreCientificoArb:String;
     descripcionArb:String;
     urlImagenArb:String;
     densidadArb:Number;
 
+    idEmpresa: Number;
     nombreEmpresa: String;
     nitEmpresa: Number;
 
+    idCaminon: Number;
     marcaCamion:String;
     descripcionCamion:String;
-    placa:String;
+    placaCamion:String;
 }
