@@ -1,3 +1,13 @@
-<p>
-  camion-malo works!
-</p>
+<table class="table table-striped" id="proveedores">
+    <thead >
+        <tr>
+            <th>Vehiculos sospechosos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let e of sosp">
+          <td >{{e.placa}}</td>
+        </tr>
+
+    </tbody>
+</table>

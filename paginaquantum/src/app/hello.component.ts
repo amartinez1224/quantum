@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'hello',
   template: `<div class="container-fluid">
               <div class="row">
-              <img src="../assets/logo.jpg" class="img-fluid" alt="Responsive image">
+              <img src="../assets/logo.jpeg" class="img-fluid" alt="Responsive image">
               </div>
               </div>`,
   styles: [`h1 { font-family: Lato; }`]

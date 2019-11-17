@@ -143,8 +143,33 @@ class Postes(Resource):
         parser.add_argument("Placa")
         parser.add_argument("Cambios")
         args = parser.parse_args()
-        print(args)
-        print(np.fromstring(args["Cambios"], np.float64))
+        Placa=args["Placa"]
+        Decodificado=np.fromstring(args["Cambios"], np.int)
+        Massa=np.reshape(Decodificado,(int(len(Decodificado)/3),3))
+        print(Massa)
+        densidad=10
+        volumen=6
+        Lugarllenado=[57,62]
+        Masa=densidad*volumen
+        for i in range(int(len(Decodificado)/3)):
+            #or (Lugarllenado[0]!=Massa[i,0] and Lugarllenado[1]!=Massa[i,1])
+            if (abs(Masa-Massa[i,2])>2):
+                Dicc={'Placa':Placa,'Alerta': True}
+
+                mydb = mysql.connector.connect(
+                  host="remotemysql.com",
+                  port="3306",
+                  user="qgbd0jGv86",
+                  passwd="ZTOqEZrvAU",
+                  database="qgbd0jGv86"
+                )
+                mycursor = mydb.cursor()
+                mycursor.execute("SELECT id FROM Camiones WHERE placa = '"+Placa"'")
+                myresult = mycursor.fetchall()
+                print(myresult)
+
+                return myresult,201
+
         return None, 201
 
 

@@ -37,11 +37,14 @@ mycursor.execute("ALTER TABLE salvoconducto ADD COLUMN volumen INT ")
 
 #mycursor.execute("SHOW COLUMNS FROM maderas")
 
-mycursor.execute("INSERT INTO SalvoCamion(idSalvo,idCamion) VALUES (1,1)")
+#mycursor.execute("INSERT INTO SalvoCamion(idSalvo,idCamion) VALUES (1,1)")
 #mycursor.execute("INSERT INTO personas (nombre,apellido,cedula) VALUES ('Nicolas','vergara',12345)")
+
+sql = "CREATE TABLE sosp (idCamion int, FOREIGN KEY (idCamion) REFERENCES camiones(id))"
+mycursor.execute(sql)
 mydb.commit()
 
-mycursor.execute("SELECT * FROM SalvoCamion")
+mycursor.execute("SELECT * FROM sosp")
 
 myresult = mycursor.fetchall()
 
