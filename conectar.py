@@ -144,7 +144,7 @@ class Postes(Resource):
         parser.add_argument("Cambios")
         args = parser.parse_args()
         print(args)
-        print(np.frombuffer(args["Cambios"], np.float64))
+        print(np.fromstring(args["Cambios"], np.float64))
         return None, 201
 
 

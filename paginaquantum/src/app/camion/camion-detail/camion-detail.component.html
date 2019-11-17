@@ -1,36 +1,61 @@
+  <div class="container-fluid">
+    <div class="row">
+<div class="col" >
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">{{camionDetail.id}}</h5>
 
-    <p class="card-text">{{camionDetail.id}}</p>
-    <p class="card-text">{{camionDetail.origen}}</p>
-    <p class="card-text">{{camionDetail.destino}}</p>
-    <p class="card-text">{{camionDetail.claseRecurso}}</p>
-    <p class="card-text">{{camionDetail.descripcion}}</p>
-    <p class="card-text">{{camionDetail.formaOtorgamiento}}</p>
-    <p class="card-text">{{camionDetail.numero}}</p>
-    <p class="card-text">{{camionDetail.volumen}}</p>
+    <h5 class="card-title">Salvoconducto numero {{camionDetail.numero}}</h5>
 
-    <p class="card-text">{{camionDetail.idCon}}</p>
-    <p class="card-text">{{camionDetail.nombreCon}}</p>
-    <p class="card-text">{{camionDetail.apellidoCon}}</p>
-    <p class="card-text">{{camionDetail.cedulaCon}}</p>
+    <p class="card-text">Origen: {{camionDetail.origen}}</p>
+    <p class="card-text">Destino: {{camionDetail.destino}}</p>
+    <p class="card-text">Tipo de transporte: {{camionDetail.claseRecurso}}</p>
+    <p class="card-text">Descripcion: {{camionDetail.descripcion}}</p>
+    <p class="card-text">Otorgamiento: {{camionDetail.formaOtorgamiento}}</p>
 
-    <p class="card-text">{{camionDetail.idArb}}</p>
-    <p class="card-text">{{camionDetail.nombreArb}}</p>
-    <p class="card-text">{{camionDetail.nombreCientificoArb}}</p>
-    <p class="card-text">{{camionDetail.descripcionArb}}</p>
-    <p class="card-text">{{camionDetail.urlImagenArb}}</p>
-    <p class="card-text">{{camionDetail.densidadArb}}</p>
-
-    <p class="card-text">{{camionDetail.idEmpresa}}</p>
-    <p class="card-text">{{camionDetail.nombreEmpresa}}</p>
-    <p class="card-text">{{camionDetail.nitEmpresa}}</p>
-
-    <p class="card-text">{{camionDetail.idCaminon}}</p>
-    <p class="card-text">{{camionDetail.marcaCamion}}</p>
-    <p class="card-text">{{camionDetail.descripcionCamion}}</p>
-    <p class="card-text">{{camionDetail.placaCamion}}</p>
 
   </div>
+</div>
+</div>
+<div class="col" >
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+
+    <h5 class="card-title">Autoriza al vehiculo con placa {{camionDetail.placaCamion}}</h5>
+
+    <p class="card-text">Marca: {{camionDetail.marcaCamion}}</p>
+    <p class="card-text">Descripcion: {{camionDetail.descripcionCamion}}</p>
+
+    <p class="card-text">Datos del conductor autorizado:</p>
+    <p class="card-text">Nombre: {{camionDetail.nombreCon}}</p>
+    <p class="card-text">Apellido: {{camionDetail.apellidoCon}}</p>
+    <p class="card-text">Cedula: {{camionDetail.cedulaCon}}</p>
+
+  </div>
+</div>
+
+</div>
+<div class="col" >
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Especie a transportar: {{camionDetail.nombreArb}}</h5>
+
+    <p class="card-text">Nombre cientifico: {{camionDetail.nombreCientificoArb}}</p>
+    <p class="card-text">Descripcion: {{camionDetail.descripcionArb}}</p>
+    <p class="card-text">Volumen a transportar: {{camionDetail.volumen}} metros cubicos</p>
+
+  </div>
+</div>
+</div>
+<div class="col" >
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Se expide a nombre de:</h5>
+    <p class="card-text">Nombre: {{camionDetail.nombreEmpresa}}</p>
+    <p class="card-text">NIT: {{camionDetail.nitEmpresa}}</p>
+  </div>
+</div>
+</div>
+</div>
 </div>

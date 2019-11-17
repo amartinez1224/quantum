@@ -1,3 +1,30 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-body { background: url('Background.jpg'); }
+body { background: url('https://images.unsplash.com/photo-1527701963793-33e969bca5ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=958&q=80');
+/* Background image is centered vertically and horizontally at all times */
+background-position: center center;
+
+/* Background image doesn't tile */
+background-repeat: no-repeat;
+
+/* Background image is fixed in the viewport so that it doesn't move when
+   the content's height is greater than the image's height */
+background-attachment: fixed;
+
+/* This is what makes the background image rescale based
+   on the container's size */
+background-size: cover;
+
+/* Set a background color that will be displayed
+   while the background image is loading
+
+https://images.unsplash.com/photo-1527701963793-33e969bca5ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=958&q=80
+https://images.unsplash.com/photo-1532690913001-11d5e03af4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80
+https://images.unsplash.com/photo-1565744733907-73e62687c149?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=582&q=80
+https://images.unsplash.com/photo-1547150284-48766a23defa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80
+
+   */
+background-color: #464646;
+
+ }
+html, body { width: 100%; }
