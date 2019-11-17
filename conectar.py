@@ -45,8 +45,8 @@ class Camiones(Resource):
                 return u, 200
         return "El salvoconducto no se encontro", 404
 
-class CamionesPlaca(Resource):
-    def get(self, placa):
+class Salvo(Resource):
+    def get(self, numero):
         mydb = mysql.connector.connect(
           host="remotemysql.com",
           port="3306",
@@ -55,7 +55,7 @@ class CamionesPlaca(Resource):
           database="qgbd0jGv86"
         )
         mycursor = mydb.cursor()
-        mycursor.execute("SELECT * FROM camiones WHERE placa = '"+placa+"'")
+        mycursor.execute("SELECT id, origen, destino, claseRecurso, descripcion, formaOtorgamiento, numero, volumen FROM salvoconducto WHERE numero = '"+numero+"'")
         myresult = mycursor.fetchall()
         return myresult, 200
 
@@ -93,5 +93,5 @@ def add_security_headers(resp):
 
 api.add_resource(Camiones,"/camion/<int:id>")
 api.add_resource(Arboles,"/arbol/<int:id>")
-api.add_resource(CamionesPlaca,"/camionPlaca/<string:placa>")
+api.add_resource(Salvo,"/salvo/<string:numero>")
 api.add_resource(Postes,"/postes")
