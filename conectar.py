@@ -149,10 +149,13 @@ class Postes(Resource):
         densidad=10
         volumen=6
         Lugarllenado=[57,62]
-        Masa=densidad*volumen
+        Masa=53
+        MasaLlena=45
+        MasaMal=42
         for i in range(int(len(Decodificado)/3)):
             #or (Lugarllenado[0]!=Massa[i,0] and Lugarllenado[1]!=Massa[i,1])
-            if (abs(Masa-Massa[i,2])>2):
+            print(abs(Masa-Massa[i,2])>2 or abs(MasaLlena-Massa[i,2])>2)
+            if ( (not (abs(Masa-Massa[i,2])>2) )and (not( abs(MasaLlena-Massa[i,2])>2))):
                 Placa = Placa[0:6]
                 Dicc={'Placa':Placa,'Alerta': True}
                 mydb = mysql.connector.connect(
@@ -169,7 +172,7 @@ class Postes(Resource):
 
                 sql="INSERT INTO sosp(idCamion) VALUES("+str(myresult[0][0])+")"
                 mycursor.execute(sql)
-                #mydb.commit()
+                mydb.commit()
                 return None,201
 
         return None, 201
@@ -198,7 +201,6 @@ class Sosp(Resource):
             Salvo["descripcion"]=myres[2]
             Salvo["placa"]=myres[3]
             so.append(Salvo)
-            print(myres)
 
 
         return so,201

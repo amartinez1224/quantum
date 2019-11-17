@@ -1,0 +1,30 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+#proveedores {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+#proveedores td, #proveedores th {
+  border: 2px solid #ddd;
+  padding: 8px;
+
+}
+
+#proveedores tr:nth-child(even){background-color: #EFF2C0;}
+#proveedores tr:nth-child(odd){background-color:lightgray;}
+
+
+
+#proveedores th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #23395B;
+  color: white;
+
+#proveedores tr:hover {color: #ffffff ;}
+}
+
+#proveedores tr:hover {background-color: #a9a9a9 ;}

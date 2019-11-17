@@ -2,12 +2,8 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'hello',
-  template: `<div class="container-fluid">
-              <div class="row">
-              <img src="../assets/logo.png" class="img-fluid" alt="Responsive image">
-              </div>
-              </div>`,
-  styles: [`h1 { font-family: Lato; }`]
+  template: ``,
+  styles: [``]
 })
 export class HelloComponent  {
   @Input() name: string;

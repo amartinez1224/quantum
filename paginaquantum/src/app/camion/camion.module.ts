@@ -16,6 +16,7 @@ import { CamionMaloComponent } from './camion-malo/camion-malo.component';
         RouterModule
   ],
   exports: [CamionListComponent],
-  providers:[CamionService]
+  providers:[CamionService],
+  bootstrap:    [ CamionListComponent ]
 })
 export class CamionModule { }
