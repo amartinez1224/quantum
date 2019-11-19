@@ -1,4 +1,5 @@
 # quantum
+![alt text](https://github.com/amartinez1224/quantum/blob/master/GoodWood/GoodWoodLogo.jpeg)
 GoodWood is a automated system designed for the control of the wood flow around colombia, although it can be applied to another countries with similar conditions.
 
 Goodwood is a solution based on the consumer, our philosophy is that the final consumer is able to cause impact in the decision of the big companies that sells wood. Our team have proposed a logo that will be given only to the companies that are commited with the responsable exploitation of the raw material. But how can we assure that?
